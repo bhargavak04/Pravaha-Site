@@ -3,18 +3,18 @@
 import Image from "next/image"
 
 const integrations = [
-  { name: "n8n", logo: "/logos/n8n-icon.png?height=60&width=120", category: "Workflow" },
-  { name: "Zapier", logo: "/logos/Zapier-icon.jpeg?height=60&width=120", category: "Automation" },
-  { name: "Salesforce", logo: "/logos/Salesforce-icon.jpeg?height=60&width=120", category: "CRM" },
-  { name: "HubSpot", logo: "/logos/Hubspot-icon.png?height=60&width=120", category: "CRM" },
-  { name: "SAP", logo: "/logos/SAP-icon.jpeg?height=60&width=120", category: "ERP" },
-  { name: "Microsoft Dynamics", logo: "/logos/Microsoft-Icon.jpeg?height=60&width=120", category: "ERP" },
-  { name: "Slack", logo: "/logos/slack -Icon.jpeg?height=60&width=120", category: "Communication" },
-  { name: "Google Workspace", logo: "/logos/Google-Icon.jpeg?height=60&width=120", category: "Productivity" },
-  { name: "Notion", logo: "/logos/Notion-icon.jpeg?height=60&width=120", category: "Productivity" },
-  { name: "Airtable", logo: "/logos/AIrtable-icon.jpeg?height=60&width=120", category: "Database" },
-  { name: "Stripe", logo: "/logos/Stripe-Icon.jpeg?height=60&width=120", category: "Payment" },
-  { name: "Shopify", logo: "/logos/Shopify-Icon.jpeg?height=60&width=120", category: "E-commerce" },
+  { name: "n8n", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/n8n-icon.png?height=60&width=120", category: "Workflow" },
+  { name: "Zapier", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Zapier-icon.jpeg?height=60&width=120", category: "Automation" },
+  { name: "Salesforce", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Salesforce-icon.jpeg?height=60&width=120", category: "CRM" },
+  { name: "HubSpot", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Hubspot-icon.png?height=60&width=120", category: "CRM" },
+  { name: "SAP", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/SAP-icon.jpeg?height=60&width=120", category: "ERP" },
+  { name: "Microsoft Dynamics", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Microsoft-Icon.jpeg?height=60&width=120", category: "ERP" },
+  { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/slack -Icon.jpeg?height=60&width=120", category: "Communication" },
+  { name: "Google Workspace", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Google-Icon.jpeg?height=60&width=120", category: "Productivity" },
+  { name: "Notion", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Notion-icon.jpeg?height=60&width=120", category: "Productivity" },
+  { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/AIrtable-icon.jpeg?height=60&width=120", category: "Database" },
+  { name: "Stripe", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Stripe-Icon.jpeg?height=60&width=120", category: "Payment" },
+  { name: "Shopify", logo: "https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Shopify-Icon.jpeg?height=60&width=120", category: "E-commerce" },
 ]
 
 export default function IntegrationsSection() {

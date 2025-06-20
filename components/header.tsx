@@ -26,7 +26,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-2 logo-container">
             <div className="w-8 h-8 rounded-lg relative logo-glow-container">
               <img 
-                src="/logos/Pravahaicon2.png" 
+                src="https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Pravahaicon2.png" 
                 alt="Pravaha Logo" 
                 className="w-full h-full object-contain relative z-10"
               />
