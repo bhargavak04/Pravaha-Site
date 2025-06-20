@@ -19,8 +19,16 @@ const integrations = [
 
 export default function IntegrationsSection() {
   return (
-    <section id="integrations" className="py-20 px-4">
-      <div className="container mx-auto">
+    <section id="integrations" className="py-20 px-4 relative">
+      {/* Lightning animation effects */}
+      <div className="lightning-container">
+        <div className="lightning-bolt lightning-bolt-1"></div>
+        <div className="lightning-bolt lightning-bolt-2"></div>
+        <div className="lightning-bolt lightning-bolt-3"></div>
+        <div className="lightning-bolt lightning-bolt-4"></div>
+        <div className="lightning-bolt lightning-bolt-5"></div>
+      </div>
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Seamless Integrations</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">

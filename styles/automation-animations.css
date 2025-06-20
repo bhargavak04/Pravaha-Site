@@ -1,5 +1,35 @@
 /* Futuristic Animations for Automation Visualization */
 
+/* Lightning animations */
+@keyframes lightning1 {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(15deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  20% { opacity: 0; }
+  30% { opacity: 0.6; }
+  40% { opacity: 0; }
+  100% { transform: translateX(200%) translateY(200%) rotate(15deg); opacity: 0; }
+}
+
+@keyframes lightning2 {
+  0% { transform: translateX(200%) translateY(-50%) rotate(-25deg); opacity: 0; }
+  15% { opacity: 0; }
+  20% { opacity: 0.7; }
+  25% { opacity: 0; }
+  45% { opacity: 0.5; }
+  50% { opacity: 0; }
+  100% { transform: translateX(-100%) translateY(150%) rotate(-25deg); opacity: 0; }
+}
+
+@keyframes lightning3 {
+  0% { transform: translateX(50%) translateY(-100%) rotate(0deg); opacity: 0; }
+  25% { opacity: 0; }
+  30% { opacity: 0.6; }
+  35% { opacity: 0; }
+  60% { opacity: 0.4; }
+  65% { opacity: 0; }
+  100% { transform: translateX(50%) translateY(200%) rotate(0deg); opacity: 0; }
+}
+
 /* Glowing container effect */
 .glow-container {
   position: relative;
@@ -116,6 +146,90 @@
   box-shadow: 0 0 15px rgba(255, 165, 0, 0.3), 
               inset 0 0 15px rgba(255, 165, 0, 0.3);
   transition: all 0.5s ease;
+}
+
+/* Lightning bolts */
+.lightning-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lightning-bolt {
+  position: absolute;
+  width: 3px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.8), transparent);
+  filter: blur(1px);
+  border-radius: 999px;
+  opacity: 0;
+  z-index: 1;
+}
+
+.lightning-bolt:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 7px;
+  height: 100%;
+  background: rgba(255, 215, 0, 0.3);
+  filter: blur(5px);
+  border-radius: 999px;
+}
+
+.lightning-bolt:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: 11px;
+  height: 100%;
+  background: rgba(255, 215, 0, 0.1);
+  filter: blur(10px);
+  border-radius: 999px;
+}
+
+.lightning-bolt-1 {
+  top: 10%;
+  left: 20%;
+  transform-origin: center;
+  animation: lightning1 7s infinite;
+}
+
+.lightning-bolt-2 {
+  top: 30%;
+  right: 15%;
+  transform-origin: center;
+  animation: lightning2 8s infinite 2s;
+}
+
+.lightning-bolt-3 {
+  top: 60%;
+  left: 50%;
+  transform-origin: center;
+  animation: lightning3 6s infinite 1s;
+}
+
+.lightning-bolt-4 {
+  top: 15%;
+  left: 70%;
+  height: 150px;
+  transform-origin: center;
+  animation: lightning1 9s infinite 3s;
+}
+
+.lightning-bolt-5 {
+  top: 75%;
+  left: 25%;
+  height: 80px;
+  transform-origin: center;
+  animation: lightning2 6s infinite 1.5s;
 }
 
 @keyframes borderPulse {
