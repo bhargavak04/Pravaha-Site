@@ -15,7 +15,7 @@ export default function Header() {
     { name: "How it works", href: "#how-it-works" },
     { name: "Integrations", href: "#integrations" },
     { name: "Resources", href: "#resources" },
-    { name: "Support", href: "#support" },
+    { name: "Support", href: "/contact" },
   ]
 
   return (
@@ -53,9 +53,9 @@ export default function Header() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 glow-button-outline">
-              Sign Up
-            </Button>
+          <Link href="/contact" className="bg-transparent border-white/20 text-white hover:bg-white/10 glow-button-outline inline-flex items-center justify-center px-4 py-2 border rounded-md text-sm font-medium">
+                    Contact Us
+                  </Link>
             <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 glow-button-primary">
               Get Started
             </Button>
@@ -81,9 +81,9 @@ export default function Header() {
                   </Link>
                 ))}
                 <div className="flex flex-col space-y-4 pt-6">
-                  <Button variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 glow-button-outline">
-                    Sign Up
-                  </Button>
+                  <Link href="/contact" className="bg-transparent border-white/20 text-white hover:bg-white/10 glow-button-outline inline-flex items-center justify-center px-4 py-2 border rounded-md text-sm font-medium">
+                    Contact Us
+                  </Link>
                   <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 glow-button-primary">
                     Get Started
                   </Button>
