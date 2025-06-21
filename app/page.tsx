@@ -19,18 +19,22 @@ export const metadata: Metadata = {
   },
 }
 
+import ScrollAnimationProvider from "@/components/scroll-animation-provider"
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <main>
-        <HeroSection />
-        <FeaturesSection />
-        <ServicesSection />
-        <IntegrationsSection />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+    <ScrollAnimationProvider>
+      <div className="min-h-screen bg-black">
+        <Header />
+        <main>
+          <HeroSection />
+          <FeaturesSection />
+          <ServicesSection />
+          <IntegrationsSection />
+          <CTASection />
+        </main>
+        <Footer />
+      </div>
+    </ScrollAnimationProvider>
   )
 }

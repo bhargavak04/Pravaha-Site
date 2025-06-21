@@ -31,7 +31,7 @@ export default function ServicesSection() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-on-scroll fade-in slide-up">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Comprehensive Automation Services
           </h2>
@@ -40,7 +40,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 animate-on-scroll stagger-children delay-200">
           {services.map((service, index) => {
             const IconComponent = service.icon
             return (

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import '@/styles/scroll-animations.css'
+import ScrollAnimationInitializer from '@/components/scroll-animation-initializer'
 
 export const metadata: Metadata = {
   title: 'Pravāha | Automation Services',
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
   },
 }
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollAnimationInitializer />
+      </body>
     </html>
   )
 }

@@ -40,7 +40,7 @@ export default function FeaturesSection() {
   return (
     <section id="features" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-on-scroll fade-in slide-up">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Powerful Features for Modern Automation
           </h2>
@@ -49,7 +49,7 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll stagger-children">
           {features.map((feature, index) => {
             const IconComponent = feature.icon
             return (

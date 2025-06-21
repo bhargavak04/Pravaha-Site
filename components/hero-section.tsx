@@ -18,18 +18,17 @@ export default function HeroSection() {
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left animate-on-scroll slide-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 tracking-tight">
               Experience Unmatched{" "}
               <span className="bg-gradient-to-r from-orange-400 via-red-400 to-orange-300 bg-clip-text text-transparent">
                 AI Automation
               </span>{" "}
-              With Lightning-Fast Cloud Processing
+              With Seamless Workflow Orchestration
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Empower your applications with our AI API, delivering precise task automation and rapid cloud processing
-              to elevate your productivity
+            Automate repetitive tasks, optimize workflows, and accelerate operations with AI-powered systems built for speed and scalability.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -52,7 +51,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content - Automation Visualization */}
-          <div className="relative">
+          <div className="relative animate-on-scroll slide-right delay-300">
             <AutomationVisualization />
           </div>
         </div>

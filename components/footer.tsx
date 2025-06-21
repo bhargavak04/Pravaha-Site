@@ -36,9 +36,11 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm opacity-90"></div>
-              </div>
+              <img 
+                src="/logos/Pravahaicon2.png" 
+                alt="Pravaha Logo" 
+                className="w-8 h-8 rounded-lg object-contain" 
+              />
               <div className="text-white">
                 <div className="text-xl font-bold tracking-tight">Pravāha</div>
                 <div className="text-xs tracking-[0.2em] text-orange-200 uppercase">Anything Automated</div>
