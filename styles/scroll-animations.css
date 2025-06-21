@@ -30,7 +30,7 @@
 
 /* Slide in from left */
 .slide-left {
-  transform: translateX(-50px);
+  transform: translateX(-30px); /* Reduced from -50px for subtler animation */
   opacity: 0;
 }
 
@@ -41,7 +41,7 @@
 
 /* Slide in from right */
 .slide-right {
-  transform: translateX(50px);
+  transform: translateX(30px); /* Reduced from 50px for subtler animation */
   opacity: 0;
 }
 
@@ -52,7 +52,7 @@
 
 /* Scale up animation */
 .scale-up {
-  transform: scale(0.9);
+  transform: scale(0.95); /* Reduced from 0.9 for subtler animation */
   opacity: 0;
 }
 
