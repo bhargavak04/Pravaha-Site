@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
 
-const benefits = ["Free 14-day trial", "No setup fees", "24/7 expert support", "Cancel anytime"]
+const benefits = ["No setup fees", "24/7 expert support", "Cancel anytime"]
 
 export default function CTASection() {
   return (
@@ -24,7 +24,7 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll slide-up delay-300">
             <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8 py-4 text-lg">
-              Start Free Trial
+              Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button

@@ -133,7 +133,6 @@ export default function AutomationVisualization() {
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
           <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-600/30 processing-indicator">
             <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse glow-dot"></div>
-            <span className="text-gray-300 text-xs font-mono">AI Processing cloud process</span>
             <div className="processing-steps">
               {[0, 1, 2].map((step) => (
                 <div key={step} className={`step ${processingStep === step ? 'active' : ''}`}></div>
