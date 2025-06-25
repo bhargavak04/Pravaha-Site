@@ -32,15 +32,17 @@ export default function Footer() {
   return (
     <footer className="bg-black/40 backdrop-blur-sm border-t border-white/10">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
+          <div className="flex justify-between  ">
+            <div>
+
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <img 
                 src="/logos/Pravahaicon2.png" 
                 alt="Pravaha Logo" 
                 className="w-8 h-8 rounded-lg object-contain" 
-              />
+                />
               <div className="text-white">
                 <div className="text-xl font-bold tracking-tight">Pravāha</div>
                 <div className="text-xs tracking-[0.2em] text-orange-200 uppercase">Anything Automated</div>
@@ -49,6 +51,7 @@ export default function Footer() {
             <p className="text-white/70 mb-6 max-w-sm">
               Empowering businesses with intelligent automation solutions that drive efficiency and growth.
             </p>
+            </div>    
             <div className="space-y-2">
               <div className="flex items-center text-white/70">
                 <Mail className="w-4 h-4 mr-2" />
@@ -66,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          {Object.entries(footerLinks).map(([category, links]) => (
+            {/* {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h3 className="text-white font-semibold mb-4">{category}</h3>
               <ul className="space-y-2">
@@ -79,15 +82,15 @@ export default function Footer() {
                       {link.name}
                     </Link>
                   </li>
-                ))}
+                ))} 
               </ul>
             </div>
-          ))}
+          ))} */}
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60 text-sm">© 2025 Pravāha. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-center items-center">
+          <p className="text-white/60 text-sm ">© 2025 Pravāha. All rights reserved.</p>
+          {/* <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-white/60 hover:text-white transition-colors">
               <span className="sr-only">Twitter</span>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -114,7 +117,7 @@ export default function Footer() {
                 />
               </svg>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
