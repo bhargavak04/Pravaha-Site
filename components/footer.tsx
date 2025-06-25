@@ -56,11 +56,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-white/70">
                 <Phone className="w-4 h-4 mr-2" />
-                <span className="text-sm">+91-79 8244 6541</span>
+                <span className="text-sm">+91-63 5543 3022</span>
               </div>
               <div className="flex items-center text-white/70">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-sm">Ahmedabad, India</span>
+                <span className="text-sm">Gandhi nagar, India</span>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60 text-sm">© 2024 Pravāha. All rights reserved.</p>
+          <p className="text-white/60 text-sm">© 2025 Pravāha. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-white/60 hover:text-white transition-colors">
               <span className="sr-only">Twitter</span>
