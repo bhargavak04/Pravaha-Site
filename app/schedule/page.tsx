@@ -1,188 +1,125 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { Calendar } from '@/components/ui/calendar';
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Terminal } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import ScrollAnimationProvider from "@/components/scroll-animation-provider";
 
 export default function SchedulePage() {
-  const [slots, setSlots] = useState<Date[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [calendlyUrl, setCalendlyUrl] = useState<string | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
-    const code = new URLSearchParams(window.location.search).get('code');
-    if (code) {
-      fetchSlots(code);
-    } else {
-      initiateOAuth();
-    }
+    fetchCalendlyUrl();
   }, []);
 
-  async function initiateOAuth() {
+  const fetchCalendlyUrl = async () => {
+    setIsLoading(true);
     try {
-      const response = await fetch('/api/schedule/google-calendar', {
+      const response = await fetch('/api/schedule/calendly?action=get-calendly-url', {
         method: 'GET',
         headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Response is not JSON');
-      }
-
-      const data = await response.json();
-      if (!data.url) {
-        throw new Error('OAuth URL not found in response');
-      }
-      window.location.href = data.url;
-    } catch (error) {
-      console.error('Failed to initiate OAuth:', error);
-      alert('Failed to start authentication. Please try again.');
-    }
-  }
-
-  async function fetchSlots(code: string) {
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/schedule/google-calendar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
-        body: JSON.stringify({ code, action: 'fetch-slots' }),
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch slots: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      if (!data.events) {
-        throw new Error('No events data received');
-      }
 
-      setSlots(data.events.map((event: any) => new Date(event.start.dateTime)));
-    } catch (error) {
-      console.error('Failed to fetch slots:', error);
-      alert('Failed to load available slots. Please try again.');
+      if (data.url) {
+        setCalendlyUrl(data.url);
+        toast({
+          title: "Calendly URL Loaded",
+          description: "Calendly scheduling link fetched successfully.",
+        });
+      } else {
+        throw new Error("No Calendly URL received.");
+      }
+    } catch (error: any) {
+      console.error('Failed to fetch Calendly URL:', error);
+      alert(`Failed to fetch Calendly URL: ${error.message}`);
+      toast({
+        title: "Calendly Error",
+        description: `Failed to fetch Calendly URL: ${error.message}`,
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
-  async function handleBookSlot() {
-    const code = new URLSearchParams(window.location.search).get('code');
-    if (!code) {
-      initiateOAuth();
-      return;
+  const handleScheduleMeeting = () => {
+    if (calendlyUrl) {
+      window.open(calendlyUrl, '_blank');
+    } else {
+      alert("Calendly scheduling link is not available.");
     }
-
-    setIsLoading(true);
-    try {
-      const selectedDate = slots[0]; // Get the first selected date
-      if (!selectedDate) {
-        throw new Error('Please select a date first');
-      }
-
-      const eventDetails = {
-        summary: 'Meeting with Pravaha',
-        description: 'Scheduled meeting via Pravaha booking system',
-        start: {
-          dateTime: selectedDate.toISOString(),
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        },
-        end: {
-          dateTime: new Date(selectedDate.getTime() + 3600000).toISOString(), // 1 hour meeting
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        },
-      };
-
-      const response = await fetch('/api/schedule/google-calendar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({ code, action: 'book-slot', eventDetails }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to book slot: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (!data.event) {
-        throw new Error('No event data received');
-      }
-
-      alert('Slot booked successfully!');
-      await fetchSlots(code); // Refresh slots after booking
-    } catch (error) {
-      console.error('Failed to book slot:', error);
-      alert(error instanceof Error ? error.message : 'Failed to book slot. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-8 bg-gray-50">
-      <div className="w-full max-w-4xl">
-        <h2 className="text-3xl font-bold mb-6 text-gray-900">Schedule a Meeting</h2>
-        <div className="bg-white p-8 rounded-xl shadow-lg">
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-800">Select Available Time Slot</h3>
-            <p className="text-gray-600 mb-4">{slots.length ? 'Click on a date to select a time slot' : 'Loading available slots...'}</p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-1">
-              <Calendar 
-                selected={slots}
-                mode="multiple"
-                className="rounded-lg border-2 border-gray-100 p-4"
-                disabled={(date) => !slots.some(slot => 
-                  slot.getDate() === date.getDate() && 
-                  slot.getMonth() === date.getMonth() && 
-                  slot.getFullYear() === date.getFullYear()
-                )}
-              />
-            </div>
-            <div className="flex-1">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="text-md font-medium mb-4 text-gray-700">Selected Time Slots</h4>
-                {slots.length > 0 ? (
-                  <ul className="space-y-2">
-                    {slots.map((slot, index) => (
-                      <li key={index} className="text-sm text-gray-600">
-                        {slot.toLocaleString('en-US', { 
-                          weekday: 'long',
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
-                      </li>
-                    ))}
+    <ScrollAnimationProvider>
+      <div className="min-h-screen bg-black">
+        <Header />
+        <main className="flex flex-col items-center justify-center w-full flex-1 py-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-lg">Schedule a Meeting</h1>
+
+            {isLoading && (
+              <Alert className="mb-4 bg-gray-800 text-white border-gray-700">
+                <Terminal className="h-4 w-4 text-blue-400" />
+                <AlertTitle className="text-white">Loading...</AlertTitle>
+                <AlertDescription className="text-gray-300">
+                  Fetching Calendly scheduling link...
+                </AlertDescription>
+              </Alert>
+            )}
+
+            {!isLoading && calendlyUrl && (
+              <div className="flex flex-col items-center gap-4">
+                <p className="text-xl text-gray-300 mb-6">Seamlessly book your next meeting with us via Calendly:</p>
+                <Button onClick={handleScheduleMeeting} className="mt-4 px-8 py-3 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transform hover:scale-105">
+                  Schedule on Calendly
+                </Button>
+                <div className="mt-8 p-6 bg-gray-800 rounded-lg shadow-xl max-w-2xl mx-auto text-left">
+                  <h2 className="text-2xl font-bold text-white mb-4">Why Schedule with Pravaha?</h2>
+                  <ul className="list-disc list-inside text-gray-300 space-y-2">
+                    <li>
+                      <span className="font-semibold text-blue-300">Expert Guidance:</span> Get personalized advice from our automation specialists.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-blue-300">Tailored Solutions:</span> Discuss your specific needs and how we can help streamline your workflows.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-blue-300">No Obligation:</span> A free consultation to explore possibilities without commitment.
+                    </li>
                   </ul>
-                ) : (
-                  <p className="text-sm text-gray-500">No slots selected</p>
-                )}
-                <button 
-                  className={`mt-6 w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-300 ${isLoading || !slots.length ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  onClick={handleBookSlot}
-                  disabled={isLoading || !slots.length}
-                >
-                  {isLoading ? 'Booking...' : slots.length ? 'Book Selected Slot' : 'Select a Slot'}
-                </button>
+                  <p className="mt-4 text-gray-400">We look forward to connecting with you and discussing how Pravaha Automation Services can transform your business operations.</p>
+                </div>
               </div>
-            </div>
+            )}
+
+            {!isLoading && !calendlyUrl && (
+              <Alert variant="destructive" className="bg-red-800 text-white border-red-700">
+                <Terminal className="h-4 w-4 text-red-400" />
+                <AlertTitle className="text-white">Error</AlertTitle>
+                <AlertDescription className="text-red-200">
+                  Could not load Calendly scheduling link. Please check your configuration.
+                </AlertDescription>
+              </Alert>
+            )}
           </div>
-        </div>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </ScrollAnimationProvider>
   );
 }
