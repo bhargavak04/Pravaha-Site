@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   icons: {
     icon: 'https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Pravahaicon2.png', // or .ico/.png
   },
+  other: {
+    'google-site-verification': 'tGcAIDiJRujvKvKOytSe1vsPK4sUnJ-ZFAblVyugNZ8'
+  }
 }
 
 
