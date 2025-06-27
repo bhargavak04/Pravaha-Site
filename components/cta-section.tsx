@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 const benefits = ["No setup fees", "24/7 expert support", "Cancel anytime"]
 
@@ -28,11 +29,14 @@ export default function CTASection() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="bg-transparent border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg"
             >
-              Schedule Demo
+              <Link href="/schedule" passHref>
+                <Button asChild>Schedule Demo</Button>
+              </Link>
             </Button>
           </div>
 

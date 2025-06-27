@@ -1,8 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import AutomationVisualization from "@/components/automation-visualization"
+import Link from "next/link"
 
 export default function HeroSection() {
   return (
@@ -28,7 +29,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Automate repetitive tasks, optimize workflows, and accelerate operations with AI-powered systems built for speed and scalability.
+              Automate repetitive tasks, optimize workflows, and accelerate operations with AI-powered systems built for speed and scalability.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -40,12 +41,14 @@ export default function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="bg-transparent border-gray-600 text-white hover:bg-white/5 px-8 py-4 h-14 text-base backdrop-blur-sm"
               >
-                <Play className="mr-2 h-5 w-5" />
-                Demo
+                <Link href="/schedule" passHref>
+                  Demo
+                </Link>
               </Button>
             </div>
           </div>
