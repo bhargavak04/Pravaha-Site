@@ -121,15 +121,15 @@ export default function ResourcesPage() {
                     <p className="text-gray-400 leading-relaxed mb-6">Master the basics of business process automation with our comprehensive starter guides.</p>
                     <div className="space-y-3">
                       <a href="https://www.acronis.com/en-us/blog/posts/business-process-automation/" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Business-Automation-Tools.jpg" alt="Business Automation Tools" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         Business Process Automation: Complete Guide for 2024
                       </a>
                       <a href="https://www.flowforma.com/blog/business-process-automation" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Automation tools.png" alt="Automation Tools" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         Business Process Automation: Complete Guide 2025
                       </a>
                       <a href="https://imaginovation.net/blog/business-process-automation-guide/" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Business-Automation-Tools.jpg" alt="Business Automation Tools" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         Complete Guide to Business Process Automation 2025
                       </a>
                     </div>
@@ -146,15 +146,15 @@ export default function ResourcesPage() {
                     <p className="text-gray-400 leading-relaxed mb-6">Learn how to integrate AI into your workflows for smarter automation solutions.</p>
                     <div className="space-y-3">
                       <a href="https://www.salesforce.com/service/ai/customer-service-ai/" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Customer-Service.png" alt="Customer Service" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         AI in Customer Service: Everything You Need to Know
                       </a>
                       <a href="https://blog.hubspot.com/service/state-of-ai-in-service" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Customer-Service.png" alt="Customer Service" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         AI in Customer Service: 11 Ways to Use it [2024 Data]
                       </a>
                       <a href="https://aisera.com/blog/automated-customer-service/" target="_blank" rel="noopener noreferrer" className="flex items-center text-orange-400 hover:text-orange-500 transition-colors duration-200 group">
-                        <img src="/logos/Customer-Service.png" alt="Customer Service" className="w-6 h-6 object-contain mr-3" />
+                        <span className="mr-3">•</span>
                         Customer Service Automation: Complete Guide 2024
                       </a>
                     </div>
