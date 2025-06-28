@@ -220,7 +220,7 @@ export default function ResourcesPage() {
                 <article className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-500 shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl pointer-events-none"></div>
                   <div className="relative">
-                    <div className="w-full h-32 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="w-full rounded-lg mb-4 overflow-hidden">
                       <img src="https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Business-Automation-Tools.jpg" alt="Business Automation Tools" className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <h4 className="text-xl font-semibold text-white mb-3">The Future of Small Business Automation</h4>
@@ -234,7 +234,7 @@ export default function ResourcesPage() {
                 <article className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-500 shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl pointer-events-none"></div>
                   <div className="relative">
-                    <div className="w-full h-32 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="w-full rounded-lg mb-4 overflow-hidden">
                       <img src="https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Customer-Service.png" alt="Customer Service" className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <h4 className="text-xl font-semibold text-white mb-3">AI Customer Service Revolution</h4>
@@ -248,7 +248,7 @@ export default function ResourcesPage() {
                 <article className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-500 shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl pointer-events-none"></div>
                   <div className="relative">
-                    <div className="w-full h-32 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="w-full rounded-lg mb-4 overflow-hidden">
                       <img src="https://cdn.jsdelivr.net/gh/bhargavak04/Pravaha-Site@main/public/logos/Automation tools.png" alt="Automation Tools" className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <h4 className="text-xl font-semibold text-white mb-3">Essential Automation Tools 2024</h4>

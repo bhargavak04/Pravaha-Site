@@ -34,9 +34,7 @@ export default function CTASection() {
               size="lg"
               className="bg-transparent border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg"
             >
-              <Link href="/schedule" passHref>
-                <Button asChild >Schedule Demo</Button>
-              </Link>
+              <Link href="/schedule" passHref>Schedule Demo</Link>
             </Button>
           </div>
 
