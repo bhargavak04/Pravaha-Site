@@ -14,7 +14,10 @@ export default function Header() {
     { name: "Pricing", href: "#pricing" },
     { name: "How it works", href: "#how-it-works" },
     { name: "Integrations", href: "#integrations" },
-    { name: "Resources", href: "#resources" },
+    {
+      name: "Resources",
+      href: "/resources",
+    },
     { name: "Support", href: "/contact" },
   ]
 
